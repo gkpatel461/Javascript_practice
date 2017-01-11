@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Electrical Charge</title>
+<script type="text/javascript">
+
+function calculate()
+{
+var unit=document.getElementById("unit").value;
+var catg=document.getElementById("catg").value;
+var phase=document.getElementById("phase").value;
+var charge=0;
+
+if(catg=="RGP")
+{
+		if(unit>=50)
+		{
+		charge=charge+50*3.20;
+		unit=unit-50;
+			if(unit>=150)
+			{
+			charge=charge+150*3.90;
+			unit=unit-150;
+			charge=charge+unit*4.90;
+			}
+			else
+			{
+			charge=charge+unit*3.90;
+			}
+		}
+		else
+		{
+		 charge=charge+unit*3.20;
+		}
+		if(phase=="1 Phase")
+		{
+			charge=charge+25;
+			charge=charge+((charge*15)/100);
+		
+		}
+		else
+		{
+		charge=charge+75;
+		charge=charge+((charge*15)/100);
+		}
+		
+
+}
+if(catg=="BPL")
+{
+		if(unit>=30)
+		{
+		charge=charge+30*1.50;
+		unit=unit-30;
+			if(unit>=20)
+			{
+			charge=charge+20*3.90;
+			unit=unit-20;
+		
+				if(unit>=150)
+				{
+				charge=charge+150*3.90;
+				unit=unit-150;
+				charge=charge+unit*4.90;
+				}
+				else
+				{
+				charge=charge+unit*3.90
+				}
+			}
+			else
+			{
+			charge=charge+unit*3.90;
+			}
+		}
+		else
+		{
+		 charge=charge+unit*3.20;
+		}
+		if(phase=="1 Phase")
+		{
+			charge=charge+5;
+			charge=charge+((charge*15)/100);
+		
+		}
+		else
+		{
+		charge=charge+5;
+		charge=charge+((charge*15)/100);
+		}
+		alert("your bill is"+charge);
+
+}
+if(catg=="GLP")
+{
+
+  if(unit>=200)
+  {
+	charge=charge+200*4.10;
+	unit=unit-200;
+	charge=charge+unit*4.80;
+  }
+		if(phase=="1 Phase")
+		{
+			charge=charge+30;
+			charge=charge+((charge*15));
+		
+		}
+		else
+		{
+		charge=charge+70;
+		charge=charge+((charge*15));
+		
+		}
+}
+if(catg=="NON RGP")
+{
+	
+	unit=unit*1000;
+	
+	if(unit<=5000)
+	{
+		charge=charge+unit*4.50;
+		charge=charge+(unit/1000)*70;
+	}
+	else
+	{
+		charge=charge+unit*4.50;
+		charge=charge+(unit/1000)*90;
+	}
+	charge=charge+(charge*goverment_duty())/100;
+}
+if(catg=="LTP-AG")
+{
+
+		charge=charge+unit*3.30+10;
+
+}
+alert("your bill is"+charge);
+}
+function gov_duty()
+	{
+		var catg=document.getElementById("catg").value;
+		if(catg=="NON RGP")
+		{
+		document.getElementById("Government_Duty").style.display="block";
+		document.getElementById("warning").style.display="block";
+		}
+
+	}
+	function goverment_duty()
+	{
+	var gover_duty=document.getElementById("Government_Duty").value;
+	if(gover_duty=="Commercial")
+	{
+		return 25;
+	}
+	if(gover_duty=="Industrial")
+	{
+		return 10;
+	}
+	if(gover_duty=="Religious")
+	{
+		return 25;
+	}
+	if(gover_duty=="Hostel")
+	{
+		return 11.25;
+	}
+	}
+
+</script>
+
+
+</head>
+<body>
+CATEGORY<select id="catg" onchange="gov_duty()">
+		<option></option>
+		<option >RGP</option>
+		<option>BPL</option>
+		<option>GLP</option>
+		<option >NON RGP</option>
+		<option>LTP-AG</option>
+</select>
+</br>
+</br>
+
+PHASE	<select id="phase">
+	<option></option>
+	<option>1 Phase</option>
+	<option>3 Phase</option>
+</select>
+<br>
+<br>
+<select id="Government_Duty" style="display:none;">
+	<option>select Government Duty</option>
+	<option>Commercial</option>
+	<option>Industrial</option>
+	<option>Religious</option>
+	<option>Hostel</option>
+</select>
+
+<p id="warning" style="display:none">PLEASE ENTER POWER IN KW</p>
+</br>
+</br>
+
+<input type="number" id="unit"/>
+</br>
+</br>
+<input type="button" onclick="calculate()" value="Calculate"/>
+</body>
+
+</html>

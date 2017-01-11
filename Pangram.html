@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>PANGRAM</title>
+<script type="text/javascript">
+function check()
+{
+ var str_check=document.getElementById("str").value.toUpperCase().split("");
+ var flag=true;
+ 
+ for(var a=65;a<91;a++)
+ {
+ 
+	if(flag==false)
+	{
+	alert("your String is not pangram");
+	break;
+	}
+   var lttr=String.fromCharCode(a);
+		for(var i=0;i<str_check.length;i++)
+			{
+				if(lttr==str_check[i])
+				{
+				flag=true;
+				break;
+				}
+				else
+				{
+				flag=false;
+				}
+				
+			}
+   
+   
+ }
+ 
+ if(flag==true)
+ {
+ 
+ alert("your string is pangram");
+ }
+}
+
+
+
+</script>
+</head>
+<body>
+ENTER YOUR STRING:<input type="text" id="str"/>
+<input type="button" onclick="check()" value="check"/>
+
+</body>
+</html>

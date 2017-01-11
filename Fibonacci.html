@@ -1,0 +1,43 @@
+<html>
+<head>
+<script> 
+    function Fibonacci (inNum) 
+	{ 
+       if (inNum == 0) 
+          var FibonacciNum = 0; 
+       else
+	   { 
+           if (inNum == 1) 
+              FibonacciNum = 1; 
+           else 
+		   { 
+                FibonacciNum = Fibonacci(inNum - 2) + Fibonacci(inNum - 1); 
+           } 
+        } 
+      return FibonacciNum; 
+    } 
+
+    function writeFibonaccis(topFibonacci) 
+	{ 
+		var x=0;
+		var fibbo=[];
+		for (var i=0;  i <= topFibonacci && x<topFibonacci ; i++) 
+		{ 
+			x=Fibonacci(i);
+			if(x>topFibonacci)
+				break;
+				
+				
+			fibbo[i]=x;
+			  
+       } 
+	   document.getElementById("dom").innerHTML=fibbo;
+   } 
+</script>
+</head>
+<body>
+<input id="numFibonaccis">
+<input type="button" value="Show Fibonaccis" onclick="writeFibonaccis(numFibonaccis.value)">
+<p id="dom"><br></p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html
+	<head>
+		<title>RNA TRANS</title>
+		<script type="text/javascript">
+			function convert()
+			{
+				var ar=document.getElementById("dna").value;
+				var rna =[];
+					for(var i=0;i<ar.length;i++)
+					{
+						if(ar[i]=="A")
+						rna[i]="U";
+						else if(ar[i]=="C")
+						rna[i]="G";
+						else if(ar[i]=="G")
+						rna[i]="C";
+						else if(ar[i]=="T")
+						rna[i]="A";
+						else
+						alert("please enter Capital or valid latter");
+				}
+				document.getElementById("dom").innerHTML = "<br>Output:"+rna.join("");	
+			}
+		</script>
+	</head>
+	<body>
+		Input : <input id="dna">
+		<input type="button" value="convert" onclick="convert()">
+		<p id="dom"><br>Output : </p>
+	</body>
+</html>	

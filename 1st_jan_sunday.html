@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>1st January Sunday</title>
+
+</head>
+<body>
+<form>
+Enter year:<input  id="y"/>
+<input type="button" onclick= "get()" value="get"/>
+<script type="text/javascript">
+function get()
+{
+
+	var year=document.getElementById("y").value;
+	if(year<2017)
+		{
+		alert("please enter after 2016");
+		}
+	else
+		{
+			//for(year=2017;year<2050;year++)
+			//{
+				var day=new Date(year,0,1);
+				
+				if(day.getDay() === 0)
+				{
+				document.write("<br>"+"In this year 1st January is Sunday");
+
+				}
+				else
+				{
+				document.write("<br>"+"In this year 1st January is not Sunday");
+
+				}
+			//}
+		}
+}		
+</script>
+</form>
+</body>
+
+</html>

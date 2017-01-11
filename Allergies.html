@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>ALLERGIES</title>
+<script type="text/javascript">
+function check_arg(score)
+{
+var list="";
+do
+{
+
+	if(score>255)
+	{
+	alert("invalid number")
+	break;
+	}
+	if(score>=128)
+	{
+	score=score-128;
+	list=list.concat("cats<br>");
+	document.getElementById("list").innerHTML=list;
+	}
+	else if(score>=64)
+	{
+	score=score-64;
+	list=list.concat("pollen<br>");
+	document.getElementById("list").innerHTML=list;
+	}
+	else if(score>=32)
+	{
+	score=score-32;
+	list=list.concat("chocolate<br>");
+	document.getElementById("list").innerHTML=list;
+	}
+	else if(score>=16)
+	{
+	score=score-16;
+	list=list.concat("tomatoes<br>");
+	document.getElementById("list").innerHTML=list;
+	}
+	else if(score>=8)
+	{
+	score=score-8;
+	list=list.concat("strawberries<br>");
+	document.getElementById("list").innerHTML=list;
+	}
+	else if(score>=4)
+	{
+	score=score-4;
+	list=list.concat("shellfish<br>");
+	document.getElementById("list").innerHTML=list;
+	}
+	else if(score>=2)
+	{
+	score=score-2;
+	list=list.concat("peanuts<br>");
+	document.getElementById("list").innerHTML=list;
+	}
+	else if(score>=1)
+	{
+	score=score-1;
+	list=list.concat("eggs<br>");
+	document.getElementById("list").innerHTML=list;
+	}
+
+}
+while(score>0);
+{
+}
+}
+
+</script>
+
+</head>
+<body>
+Enter your Score:<input type="number" id="score"/>
+<input type="button" onclick="check_arg(score.value)" value="CHECK"/>
+<p id="list"></p>
+
+</body>
+</html>

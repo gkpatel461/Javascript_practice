@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LEAP YEAR</title>
+<script type="text/javascript">
+
+function findleapyear()
+{
+
+	var year=document.getElementById("y").value;
+	if(year!="")
+	{
+		if( year%4 == 0)
+		{
+			if(year%100==0)
+			{
+				if(year%400==0)
+				{
+				document.write("this year is Leap year");
+				}
+				else
+				{
+				document.write("this year is not Leap year");
+				}
+			}
+			else
+			{
+			document.write("this year is Leap year");
+			}
+		}	  
+		else
+		{
+		document.write("this year is not Leap year");
+		}
+		
+	}
+	else
+	{
+	document.write("plese enter year");
+	}	
+		
+		
+}
+
+ 
+</script>
+
+
+</head>
+<body>
+
+ENTER YEAR:<input type="number" id="y" /></br>
+<input type="button" value="check" onclick="findleapyear()"/>
+
+</body>
+
+</html>

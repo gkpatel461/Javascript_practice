@@ -1,2 +1,2 @@
 # Javascript_practice
-Test Jira
+Test Jira 2
